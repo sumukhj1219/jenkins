@@ -1,0 +1,38 @@
+name: Go Build & Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: action/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Go version
+        run: go version
+
+      - name: Install dependencies
+        run: go mod tidy
+
+      - name: Build
+        run: go build -o app
+
+      - name: Run tests
+        run: go test ./...
+
+      - name: Archive binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-app
+          path: ./app
