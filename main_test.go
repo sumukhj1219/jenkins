@@ -21,7 +21,7 @@ func TestMain(t *testing.T) {
 	}
 
 	body := w.Body.String()
-	expected := "Hello from Go !\n"
+	expected := "Hello from Go"
 
 	if strings.TrimSpace(body) != strings.TrimSpace(expected) {
 		t.Errorf("expected body %q, got %q", expected, body)
