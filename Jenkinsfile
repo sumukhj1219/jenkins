@@ -4,6 +4,7 @@ pipeline {
     }
     environment {
         GO111MODULE = 'on'
+         JD_TO_PULL = 'golang:1.23'
     }
     stages {
         stage('Checkout') {
