@@ -1,10 +1,10 @@
 pipeline {
     agent {
-        docker { image 'golang:1.23' }
+        docker { image 'golang:1.22' }
     }
     environment {
         GO111MODULE = 'on'
-         JD_TO_PULL = 'golang:1.23'
+         JD_TO_PULL = 'golang:1.22'
     }
     stages {
         stage('Checkout') {
